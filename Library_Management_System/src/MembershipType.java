@@ -1,7 +1,7 @@
 public enum MembershipType {
-    STUDENT(0.20),
-    FACULTY(0.50),
-    REGULAR(0.00);
+    STUDENT(0.25),
+    STAFF(0.10),
+    PUBLIC(0.00);
 
     private final double discount;
 
