@@ -6,6 +6,8 @@ public class DVD extends LibraryItem {
         this.duration = duration;
     }
 
+    public int getDuration() { return duration; }
+
     @Override
     public double getFine(int daysLate) {
         return daysLate * 15.0;

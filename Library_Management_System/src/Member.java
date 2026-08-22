@@ -5,6 +5,7 @@ public class Member {
     private double debt;
     private int borrowedCount;
 
+    // Constructor 1:
     public Member(String name, String memberId, MembershipType type) {
         this.name = name;
         this.memberId = memberId;
@@ -13,8 +14,18 @@ public class Member {
         this.borrowedCount = 0;
     }
 
+    // Constructor 2:
+    public Member(String name, String memberId, MembershipType type, double debt) {
+        this.name = name;
+        this.memberId = memberId;
+        this.type = type;
+        this.debt = debt;
+        this.borrowedCount = 0;
+    }
+
     public String getName() { return name; }
     public String getMemberId() { return memberId; }
+    public MembershipType getType() { return type; }
     public double getDebt() { return debt; }
     public int getBorrowedCount() { return borrowedCount; }
 
@@ -40,6 +51,6 @@ public class Member {
     public void decBorrowed() { if (borrowedCount > 0) borrowedCount--; }
 
     public void showInfo() {
-        System.out.println("ID: " + memberId + " | Name: " + name + " | Debt: " + debt + " EGP");
+        System.out.println("ID: " + memberId + " | Name: " + name + " | Type: " + type + " | Debt: " + debt + " EGP | Borrowed: " + borrowedCount);
     }
 }

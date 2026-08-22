@@ -6,6 +6,8 @@ public class Magazine extends LibraryItem implements Renewable {
         this.issueNo = issueNo;
     }
 
+    public int getIssueNo() { return issueNo; }
+
     @Override
     public double getFine(int daysLate) {
         double totalFine = daysLate * 3.0;
@@ -20,7 +22,7 @@ public class Magazine extends LibraryItem implements Renewable {
 
     @Override
     public boolean renew() {
-        if (getStatus() == ItemStatus.BORROWED && renewals < getMaxRenewals()) {
+        if (getStatus() == ItemStatus.ON_LOAN && renewals < getMaxRenewals()) {
             renewals++;
             return true;
         }

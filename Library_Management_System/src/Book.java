@@ -8,6 +8,9 @@ public class Book extends LibraryItem implements Renewable {
         this.pages = pages;
     }
 
+    public String getAuthor() { return author; }
+    public int getPages() { return pages; }
+
     @Override
     public double getFine(int daysLate) {
         return daysLate * 5.0;
@@ -21,7 +24,7 @@ public class Book extends LibraryItem implements Renewable {
 
     @Override
     public boolean renew() {
-        if (getStatus() == ItemStatus.BORROWED && renewals < getMaxRenewals()) {
+        if (getStatus() == ItemStatus.ON_LOAN && renewals < getMaxRenewals()) {
             renewals++;
             return true;
         }

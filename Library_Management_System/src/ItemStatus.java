@@ -1,5 +1,5 @@
 public enum ItemStatus {
     AVAILABLE,
-    BORROWED,
+    ON_LOAN,
     LOST
 }

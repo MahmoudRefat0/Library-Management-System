@@ -56,7 +56,7 @@ public class Library {
 
     public boolean processReturn(String itemId, int daysLate) {
         LibraryItem item = findItem(itemId);
-        if (item == null || item.getStatus() != ItemStatus.BORROWED) return false;
+        if (item == null || item.getStatus() != ItemStatus.ON_LOAN) return false;
 
         Member m = findMember(item.getBorrowerId());
         if (m != null) {

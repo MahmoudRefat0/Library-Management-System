@@ -30,7 +30,7 @@ public abstract class LibraryItem {
 
     public boolean borrowItem(String memberId) {
         if (status == ItemStatus.AVAILABLE) {
-            this.status = ItemStatus.BORROWED;
+            this.status = ItemStatus.ON_LOAN;
             this.borrowerId = memberId;
             return true;
         }
@@ -43,8 +43,17 @@ public abstract class LibraryItem {
         this.renewals = 0;
     }
 
+    public boolean markAsLost() {
+        if (this.status == ItemStatus.AVAILABLE) {
+            this.status = ItemStatus.LOST;
+            return true;
+        }
+        return false;
+    }
+
     public void printDetails() {
         System.out.println("ID: " + id + " | Type: " + getType() + " | Title: " + title +
-                " | Status: " + status + " | Borrower: " + (borrowerId == null ? "None" : borrowerId));
+                " | Status: " + status + " | Borrower: " + (borrowerId == null ? "None" : borrowerId) +
+                " | Loan Days: " + getLoanDays() + " | Fine/Day: " + getFine(1) + " EGP");
     }
 }
